@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tong.dao.CommentMapper">
+
+    <resultMap id="comment" type="Comment">
+        <id property="id" column="id"></id>
+        <result property="nickname" column="nickname"></result>
+        <result property="email" column="email"></result>
+        <result property="content" column="content"></result>
+        <result property="avatar" column="avatar"></result>
+        <result property="createTime" column="create_time"></result>
+        <result property="blogId" column="blog_id"></result>
+        <result property="parentCommentId" column="parent_comment_id"></result>
+        <result property="adminComment" column="admin_comment"></result>
+        <association property="blog" javaType="Blog">
+            <id property="id" column="id"></id>
+        </association>
+    </resultMap>
+
+    <select id="listCommentByBlogId" resultMap="comment">
+        select c.id,c.nickname,c.email,c.content,c.blog_id,c.admin_comment,c.avatar,c.create_time,c.parent_comment_id
+        from myblog.comment c,myblog.blog b
+        where c.blog_id = b.id and c.blog_id = #{blogId} and c.parent_comment_id = #{blogParentId}
+        order by c.create_time desc
+    </select>
+
+    <insert id="saveComment" parameterType="Comment">
+        insert into myblog.comment(nickname, email, content, avatar, create_time, blog_id, parent_comment_id, admin_comment)
+        VALUES (#{nickname},#{email},#{content},#{avatar},#{createTime},#{blogId},#{parentCommentId},#{adminComment})
+    </insert>
+
+    <select id="findByParentCommentId" resultMap="comment">
+        select c.id,c.nickname,c.email,c.create_time,c.parent_comment_id,c.blog_id,c.avatar,c.admin_comment
+        from myblog.comment c
+        where c.parent_comment_id = #{parentCommentId}
+    </select>
+</mapper>

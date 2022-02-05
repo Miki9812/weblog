@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis?useUnicode=true&charaterEncoding=utf-8
+    username: root
+    password: root
+
+logging:
+  level:
+    root: info
+    com.tong.weblog: debug
+  file:
+    name: log/program-dev.log
+
+pagehelper:                #分页插件
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params:
+
+mybatis:
+  type-aliases-package: com.tong.pojo   #设置别名
+  mapper-locations: classpath:dao/*.xml   #ָ指定myBatis的核心配置文件与Mapper映射文件

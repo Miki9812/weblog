@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tong.dao.TagMapper">
+    <insert id="saveTag" parameterType="Tag">
+        insert  into myblog.tag (name) value (#{name})
+    </insert>
+    <select id="getTag" resultType="Tag">
+        select id, name from myblog.tag  where id = #{id}
+    </select>
+    <!--两个id可能会相冲，取别名即可-->
+    <resultMap id="tags" type="Tag">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <select id="getTagByName" resultType="Tag">
+        select name from myblog.tag where name = #{name}
+    </select>
+    <select id="listTag" resultType="Tag">
+        select *from myblog.tag
+    </select>
+    <update id="updateTag" parameterType="Tag">
+        update myblog.tag set name = #{name} where id = #{id}
+    </update>
+    <delete id="deleteTag">
+        delete from myblog.tag where id = #{id}
+    </delete>
+    <select id="getAllTag" resultType="Tag">
+        select * from myblog.tag
+    </select>
+    <select id="getBlogTag" resultType="Tag">
+        select t.id,t.name,b.id,b.title
+        from myblog.type t,myblog.blog b,myblog.blog_tags bt
+        where t.id = bt.tag_id and b.id = bt.blog_id
+    </select>
+</mapper>

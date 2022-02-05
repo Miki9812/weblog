@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tong.dao.TypeMapper">
+    <insert id="saveType" parameterType="com.tong.pojo.Type">
+        insert  into myblog.type (name) value (#{name})
+    </insert>
+    <select id="getType" parameterType="Long" resultType="com.tong.pojo.Type">
+        select id, name from myblog.type  where id = #{id}
+    </select>
+    <select id="getTypeByName" parameterType="String" resultType="com.tong.pojo.Type">
+        select name from myblog.type where name = #{name}
+    </select>
+    <select id="listType" resultType="com.tong.pojo.Type">
+        select *from myblog.type
+    </select>
+    <update id="updateType" parameterType="com.tong.pojo.Type">
+        update myblog.type set name = #{name} where id = #{id}
+    </update>
+    <delete id="deleteType" parameterType="Long">
+        delete from myblog.type where id = #{id}
+    </delete>
+    <select id="getAllType" resultType="com.tong.pojo.Type">
+        select * from myblog.type
+    </select>
+    <select id="getBlogType" resultType="com.tong.pojo.Type">
+        select t.id,t.name,b.id,b.title,b.type_id
+        from myblog.type t,myblog.blog b
+        where t.id = b.type_id
+    </select>
+</mapper>
