@@ -11,5 +11,5 @@ import javax.annotation.Resource;
 @Mapper
 public interface UserMapper {
 
-    User checkUser(String name,String password);
+    User checkUser(String username,String password);
 }
