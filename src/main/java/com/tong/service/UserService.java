@@ -4,5 +4,5 @@ import com.tong.pojo.User;
 
 public interface UserService {
 
-    User checkUser(String name,String password);
+    User checkUser(String username,String password);
 }
