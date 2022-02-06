@@ -20,8 +20,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User checkUser (String name,String password){
-        User user = userMapper.checkUser(name, MD5Utils.code(password));
+    public User checkUser (String username,String password){
+        User user = userMapper.checkUser(username, MD5Utils.code(password));
         System.out.println(user);
         return user;
     }
