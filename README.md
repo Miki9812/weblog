@@ -8,14 +8,7 @@
 
 ### 2.部分效果图参考
 
-以下是部分效果图作为参考
-
-![image](https://github.com/Miki9812/weblog/blob/master/blog-picture/index.png)
-![image](https://github.com/Miki9812/weblog/blob/master/blog-picture/index-down.png)
-![image](https://github.com/Miki9812/weblog/blob/master/blog-picture/admin-list.png)
-![image](https://github.com/Miki9812/weblog/blob/master/blog-picture/admin.png)
-![image](https://github.com/Miki9812/weblog/blob/master/blog-picture/admin-edit.png)
-
+部分效果图在blog-picture文件夹里面，仅供参考。
 
 ## 二、项目总述
 
