@@ -22,11 +22,11 @@
 数据库：MySQL
 
 ### 3.环境介绍
-数据库：mysql8.0.27
-前端框架：Semantic UI、Thymeleaf模板引擎
-后端框架：SpringBoot、Spring+SpringMVC+MyBatis
-语言：Java
-JDK版本：11
-编译器IDE：IDEA 2020.2.2
+数据库：mysql8.0.27；
+前端框架：Semantic UI、Thymeleaf模板引擎；
+后端框架：SpringBoot、Spring+SpringMVC+MyBatis；
+语言：Java；
+JDK版本：11；
+编译器IDE：IDEA 2020.2.2；
 插件引用：
 LomBok（简化部分代码插件）、Animate.css-master（动画效果）、editor.md-master（markdown插件）、tocbot-master（目录生成）、typo.css-master（网页排版）、pageHelper（分页插件）
